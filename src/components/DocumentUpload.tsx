@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
@@ -12,6 +12,14 @@ interface DocumentCardProps {
 }
 
 const DocumentCard = ({ id, title, description, icon }: DocumentCardProps) => {
+  const [fileName, setFileName] = useState<string | null>(null);
+  
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setFileName(e.target.files[0].name);
+    }
+  };
+  
   return (
     <Card className="p-4 hover:shadow-md transition-shadow">
       <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
@@ -22,12 +30,15 @@ const DocumentCard = ({ id, title, description, icon }: DocumentCardProps) => {
           <div>
             <h3 className="font-medium">{title}</h3>
             <p className="text-sm text-gray-500">{description}</p>
+            {fileName && <p className="text-xs text-green-600 mt-1">Arquivo: {fileName}</p>}
           </div>
         </div>
         <div>
-          <input type="file" id={id} className="hidden" />
+          <input type="file" id={id} className="hidden" onChange={handleFileChange} />
           <label htmlFor={id}>
-            <Button size="sm" variant="outline" className="cursor-pointer" as="span">Upload</Button>
+            <Button size="sm" variant="outline" className="cursor-pointer" asChild>
+              <span>Upload</span>
+            </Button>
           </label>
         </div>
       </div>
