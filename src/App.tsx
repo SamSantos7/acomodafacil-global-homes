@@ -11,6 +11,9 @@ import Accommodation from "./pages/Accommodation";
 import Dashboard from "./pages/Dashboard";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Privacy from "./pages/Privacy";
 
 const queryClient = new QueryClient();
 
@@ -49,6 +52,9 @@ const App = () => (
           <Route path="/destinations/:countryId" element={<Destinations />} />
           <Route path="/city/:countryId/:cityId" element={<City />} />
           <Route path="/accommodation/:id" element={<Accommodation />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy" element={<Privacy />} />
           
           {/* Rotas protegidas */}
           <Route path="/dashboard" element={
