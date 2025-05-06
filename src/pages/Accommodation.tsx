@@ -1,11 +1,13 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { Star, MapPin, Wifi, Coffee, Home, Check, ArrowLeft } from 'lucide-react';
+import { Star, MapPin, Wifi, Coffee, Home, Check, ArrowLeft, Heart } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { useToast } from '@/hooks/use-toast';
 
 // Mock data for demo
 const accommodationData = {
@@ -52,15 +54,26 @@ const accommodationData = {
     'Visitantes devem ser registrados na recepção',
     'Proibido animais de estimação',
     'Reserva mínima de 4 semanas'
+  ],
+  cancellationRules: [
+    'Cancelamento gratuito até 14 dias antes da data de check-in',
+    '50% de reembolso para cancelamentos entre 7-14 dias antes do check-in',
+    'Sem reembolso para cancelamentos com menos de 7 dias do check-in',
+    'Alterações de data sujeitas à disponibilidade',
+    'Taxa administrativa de $50 para alterações de reserva',
+    'Crédito para uso futuro disponível em caso de cancelamento com justificativa',
+    'Condições especiais para extensão da estadia'
   ]
 };
 
 const Accommodation = () => {
   const { id } = useParams<{ id: string }>();
+  const { toast } = useToast();
   
   // In a real application, you'd fetch data based on the ID
   const accommodation = accommodationData; // This would be fetched in a real app
-  const [mainImage, setMainImage] = React.useState(accommodation.images[0]);
+  const [mainImage, setMainImage] = useState(accommodation.images[0]);
+  const [inWishlist, setInWishlist] = useState(false);
 
   const getAccommodationTypeLabel = (type: string) => {
     switch (type) {
@@ -73,6 +86,18 @@ const Accommodation = () => {
       default:
         return 'Acomodação';
     }
+  };
+  
+  const handleWishlistToggle = () => {
+    setInWishlist(!inWishlist);
+    toast({
+      title: !inWishlist 
+        ? "Adicionado à Lista de Desejos" 
+        : "Removido da Lista de Desejos",
+      description: !inWishlist 
+        ? "Esta acomodação foi adicionada à sua lista de desejos."
+        : "Esta acomodação foi removida da sua lista de desejos."
+    });
   };
 
   return (
@@ -171,31 +196,56 @@ const Accommodation = () => {
                 </div>
               </div>
               
-              {/* House Rules */}
+              {/* Rules - Now with Tabs */}
               <div className="bg-white rounded-lg shadow-md p-6">
-                <h2 className="text-xl font-bold text-secondary mb-4">Regras da Casa</h2>
-                <ul className="space-y-2">
-                  {accommodation.rules.map((rule, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary mr-2 mt-2"></span>
-                      <span className="text-gray-700">{rule}</span>
-                    </li>
-                  ))}
-                </ul>
+                <h2 className="text-xl font-bold text-secondary mb-4">Regras</h2>
+                <Tabs defaultValue="accommodation-rules" className="w-full">
+                  <TabsList className="mb-4 w-full">
+                    <TabsTrigger className="flex-1" value="accommodation-rules">Regras da Acomodação</TabsTrigger>
+                    <TabsTrigger className="flex-1" value="cancellation-rules">Regras de Alteração ou Cancelamento</TabsTrigger>
+                  </TabsList>
+                  
+                  <TabsContent value="accommodation-rules">
+                    <ul className="space-y-2">
+                      {accommodation.rules.map((rule, index) => (
+                        <li key={index} className="flex items-start">
+                          <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary mr-2 mt-2"></span>
+                          <span className="text-gray-700">{rule}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </TabsContent>
+                  
+                  <TabsContent value="cancellation-rules">
+                    <ul className="space-y-2">
+                      {accommodation.cancellationRules.map((rule, index) => (
+                        <li key={index} className="flex items-start">
+                          <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary mr-2 mt-2"></span>
+                          <span className="text-gray-700">{rule}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </TabsContent>
+                </Tabs>
               </div>
               
-              {/* Map Placeholder */}
+              {/* Map - Now with Google Maps iframe */}
               <div className="bg-white rounded-lg shadow-md p-6">
                 <h2 className="text-xl font-bold text-secondary mb-4">Localização</h2>
-                <div className="h-80 bg-gray-200 rounded-lg flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin size={48} className="text-primary mx-auto mb-2" />
-                    <p className="text-gray-500">Mapa interativo com a localização da acomodação</p>
-                    <p className="text-gray-500 text-sm">
-                      {accommodation.location}, {accommodation.city}, {accommodation.country}
-                    </p>
-                  </div>
+                <div className="h-80 rounded-lg overflow-hidden mb-3">
+                  <iframe
+                    title="Google Maps Location"
+                    className="w-full h-full border-0"
+                    src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent(`${accommodation.location}, ${accommodation.city}, ${accommodation.country}`)}`}
+                    allowFullScreen
+                  ></iframe>
                 </div>
+                <p className="text-gray-600 text-sm">
+                  {accommodation.location}, {accommodation.city}, {accommodation.country}
+                </p>
+                <p className="text-gray-500 text-xs mt-1">
+                  Distância para o centro: {accommodation.distanceToCenter} km
+                </p>
               </div>
             </div>
             
@@ -253,7 +303,20 @@ const Accommodation = () => {
                   </div>
                 </div>
                 
-                <Button className="w-full bg-primary hover:bg-primary/90 text-lg py-6">Reservar Agora</Button>
+                <div className="space-y-3">
+                  <Button className="w-full bg-primary hover:bg-primary/90 text-lg py-6">
+                    Solicitar Reserva
+                  </Button>
+                  
+                  <Button 
+                    variant="outline" 
+                    className={`w-full py-6 ${inWishlist ? 'bg-pink-50 border-pink-200 text-pink-600' : 'border-gray-300'}`}
+                    onClick={handleWishlistToggle}
+                  >
+                    <Heart size={18} className={`mr-2 ${inWishlist ? 'fill-current text-pink-600' : ''}`} />
+                    {inWishlist ? 'Remover da Lista de Desejos' : 'Adicionar à Lista de Desejos'}
+                  </Button>
+                </div>
                 
                 <p className="text-center text-gray-500 text-sm mt-3">
                   Você não será cobrado ainda
