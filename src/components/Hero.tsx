@@ -41,7 +41,7 @@ const Hero = () => {
                   <option value="ireland">Irlanda</option>
                   <option value="australia">Austrália</option>
                   <option value="england">Inglaterra</option>
-                  <option value="dubai">Dubai</option>
+                  <option value="uae">Emirados Árabes Unidos</option>
                   <option value="newzealand">Nova Zelândia</option>
                   <option value="malta">Malta</option>
                   <option value="southafrica">África do Sul</option>
@@ -52,6 +52,53 @@ const Hero = () => {
                   Cidade
                 </label>
                 <select 
+                  id="city"
+                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+                >
+                  <option value="">Selecione uma cidade</option>
+                  <optgroup label="Canadá">
+                    <option value="toronto">Toronto</option>
+                    <option value="vancouver">Vancouver</option>
+                    <option value="montreal">Montreal</option>
+                    <option value="calgary">Calgary</option>
+                  </optgroup>
+                  <optgroup label="Inglaterra">
+                    <option value="london">Londres</option>
+                    <option value="brighton">Brighton</option>
+                    <option value="cambridge">Cambridge</option>
+                    <option value="manchester">Manchester</option>
+                    <option value="liverpool">Liverpool</option>
+                    <option value="oxford">Oxford</option>
+                    <option value="bournemouth">Bournemouth</option>
+                  </optgroup>
+                  <optgroup label="Irlanda">
+                    <option value="dublin">Dublin</option>
+                    <option value="cork">Cork</option>
+                    <option value="galway">Galway</option>
+                  </optgroup>
+                  <optgroup label="Malta">
+                    <option value="st-julians">St. Julians</option>
+                    <option value="sliema">Sliema</option>
+                  </optgroup>
+                  <optgroup label="Austrália">
+                    <option value="sydney">Sydney</option>
+                    <option value="melbourne">Melbourne</option>
+                    <option value="brisbane">Brisbane</option>
+                    <option value="perth">Perth</option>
+                    <option value="adelaide">Adelaide</option>
+                  </optgroup>
+                  <optgroup label="Nova Zelândia">
+                    <option value="auckland">Auckland</option>
+                    <option value="christchurch">Christchurch</option>
+                    <option value="queenstown">Queenstown</option>
+                  </optgroup>
+                  <optgroup label="Emirados Árabes Unidos">
+                    <option value="dubai">Dubai</option>
+                  </optgroup>
+                  <optgroup label="África do Sul">
+                    <option value="cape-town">Cape Town</option>
+                  </optgroup>
+                </select> 
                   id="city" 
                   className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
                 >
