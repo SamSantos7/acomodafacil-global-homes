@@ -41,7 +41,7 @@ const Hero = () => {
                   <option value="ireland">Irlanda</option>
                   <option value="australia">Austrália</option>
                   <option value="england">Inglaterra</option>
-                  <option value="dubai">Dubai</option>
+                  <option value="uae">Emirados Árabes Unidos</option>
                   <option value="newzealand">Nova Zelândia</option>
                   <option value="malta">Malta</option>
                   <option value="southafrica">África do Sul</option>

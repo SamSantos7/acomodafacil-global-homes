@@ -8,13 +8,24 @@ import { MapPin, Star, ArrowLeft } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 // Mock data for demo
-const cityData = {
-  id: 'toronto',
-  name: 'Toronto',
-  countryId: 'canada',
-  countryName: 'Canadá',
-  description: 'Toronto é a maior cidade do Canadá e um centro multicultural vibrante, oferecendo uma excelente qualidade de vida para estudantes internacionais. Com universidades de renome mundial, uma cena cultural diversificada e ótimas oportunidades de trabalho, Toronto é um destino ideal para seu intercâmbio.',
-  imageSrc: 'https://images.unsplash.com/photo-1517090504586-fde19ea6066f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
+const citiesData = {
+  'canada-toronto': {
+    id: 'toronto',
+    name: 'Toronto',
+    countryId: 'canada',
+    countryName: 'Canadá',
+    description: 'Toronto é a maior cidade do Canadá e um centro multicultural vibrante, oferecendo uma excelente qualidade de vida para estudantes internacionais. Com universidades de renome mundial, uma cena cultural diversificada e ótimas oportunidades de trabalho, Toronto é um destino ideal para seu intercâmbio.',
+    imageSrc: 'https://images.unsplash.com/photo-1517090504586-fde19ea6066f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
+  },
+  'canada-vancouver': {
+    id: 'vancouver',
+    name: 'Vancouver',
+    countryId: 'canada',
+    countryName: 'Canadá',
+    description: 'Vancouver é uma cidade costeira vibrante na Columbia Britânica, conhecida por sua qualidade de vida excepcional e beleza natural deslumbrante. Com um ambiente acolhedor para estudantes internacionais, a cidade oferece excelentes instituições de ensino e uma atmosfera multicultural única.',
+    imageSrc: 'https://images.unsplash.com/photo-1560813962-ff3d8fcf59ba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
+  }
+};
   accommodations: [
     {
       id: 'acc1',

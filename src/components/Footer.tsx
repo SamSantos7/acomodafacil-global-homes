@@ -19,10 +19,7 @@ const Footer = () => {
               Conectando estudantes internacionais a acomodações premium em todo o mundo com atendimento personalizado e reserva fácil.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-300 hover:text-primary transition-colors">
-                <Facebook size={20} />
-              </a>
-              <a href="#" className="text-gray-300 hover:text-primary transition-colors">
+              <a href="https://instagram.com/acomodafacil" className="text-gray-300 hover:text-primary transition-colors">
                 <Instagram size={20} />
               </a>
             </div>
@@ -55,28 +52,13 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Destinations */}
+          {/* All Accommodations */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Destinos Populares</h3>
+            <h3 className="text-lg font-semibold mb-4">Acomodações</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/destinations/canada" className="text-gray-300 hover:text-primary transition-colors text-sm">
-                  Canadá
-                </Link>
-              </li>
-              <li>
-                <Link to="/destinations/ireland" className="text-gray-300 hover:text-primary transition-colors text-sm">
-                  Irlanda
-                </Link>
-              </li>
-              <li>
-                <Link to="/destinations/australia" className="text-gray-300 hover:text-primary transition-colors text-sm">
-                  Austrália
-                </Link>
-              </li>
-              <li>
-                <Link to="/destinations/england" className="text-gray-300 hover:text-primary transition-colors text-sm">
-                  Inglaterra
+                <Link to="/accommodations" className="text-gray-300 hover:text-primary transition-colors text-sm">
+                  Todas as Acomodações
                 </Link>
               </li>
             </ul>
@@ -90,10 +72,7 @@ const Footer = () => {
                 <Mail size={18} className="mr-2 text-gray-300 flex-shrink-0 mt-0.5" />
                 <span className="text-gray-300 text-sm">contato@acomodafacil.com</span>
               </li>
-              <li className="flex items-start">
-                <Phone size={18} className="mr-2 text-gray-300 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-300 text-sm">+55 (11) 99999-9999</span>
-              </li>
+              
               <li className="flex items-start">
                 <Globe size={18} className="mr-2 text-gray-300 flex-shrink-0 mt-0.5" />
                 <span className="text-gray-300 text-sm">www.acomodafacil.com</span>
