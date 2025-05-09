@@ -16,7 +16,7 @@ const Footer = () => {
               </span>
             </Link>
             <p className="text-gray-300 text-sm mb-4">
-              Conectando estudantes internacionais a acomodações premium em todo o mundo com atendimento personalizado e reserva fácil.
+              Conectando estudantes internacionais a acomodações em todo o mundo com atendimento personalizado e reserva fácil.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-300 hover:text-primary transition-colors">
@@ -70,11 +70,11 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start">
                 <Mail size={18} className="mr-2 text-gray-300 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-300 text-sm">contato@acomodafacil.com</span>
+                <span className="text-gray-300 text-sm">booking@acomodafacil.com.br</span>
               </li>
               <li className="flex items-start">
                 <Globe size={18} className="mr-2 text-gray-300 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-300 text-sm">www.acomodafacil.com</span>
+                <span className="text-gray-300 text-sm">www.acomodafacil.com.br</span>
               </li>
             </ul>
           </div>

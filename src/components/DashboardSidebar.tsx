@@ -36,8 +36,8 @@ const DashboardSidebar = ({ activeTab, setActiveTab }: DashboardSidebarProps) =>
           <AvatarImage src="https://i.pravatar.cc/150?u=user" alt="Foto do usuário" />
           <AvatarFallback>JS</AvatarFallback>
         </Avatar>
-        <h3 className="font-medium text-lg">João Silva</h3>
-        <p className="text-sm text-gray-500">joao.silva@exemplo.com</p>
+        <h3 className="font-medium text-lg">Samuel Santos</h3>
+        <p className="text-sm text-gray-500">samuel.santos@exemplo.com</p>
       </div>
       
       <div className="border rounded-lg overflow-hidden">

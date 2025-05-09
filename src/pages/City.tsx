@@ -199,21 +199,12 @@ const cityData = {
     imageSrc: 'https://images.unsplash.com/photo-1452859030914-b44b89314cef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
     accommodations: []
   },
-  'perth': {
-    id: 'perth',
-    name: 'Perth',
+  'gold-coast': {
+    id: 'gold-coast',
+    name: 'Gold Coast',
     countryId: 'australia',
     countryName: 'Austrália',
-    description: 'Perth é uma cidade moderna e ensolarada, oferecendo um estilo de vida relaxado e excelentes instituições de ensino.',
-    imageSrc: 'https://images.unsplash.com/photo-1573650048431-8cf73f265c29?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
-    accommodations: []
-  },
-  'adelaide': {
-    id: 'adelaide',
-    name: 'Adelaide',
-    countryId: 'australia',
-    countryName: 'Austrália',
-    description: 'Adelaide é conhecida por sua tranquilidade e excelente sistema educacional, além de belas praias e regiões vinícolas.',
+    description: 'Gold Coast é conhecida por sua tranquilidade e excelente sistema educacional, além de belas praias e regiões vinícolas.',
     imageSrc: 'https://images.unsplash.com/photo-1530088460146-70396bd8bdf7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
     accommodations: []
   },

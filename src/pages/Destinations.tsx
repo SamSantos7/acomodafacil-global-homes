@@ -100,14 +100,8 @@ const destinations: Destination[] = [
         imageSrc: 'https://images.unsplash.com/photo-1600725935160-f67ee4f6258a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80'
       },
       {
-        id: 'perth',
-        name: 'Perth',
-        accommodationCount: 14,
-        imageSrc: 'https://images.unsplash.com/photo-1591468359477-7868a7ff9136?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1746&q=80'
-      },
-      {
-        id: 'adelaide',
-        name: 'Adelaide',
+        id: 'gold-coast',
+        name: 'Gold Coast',
         accommodationCount: 12,
         imageSrc: 'https://images.unsplash.com/photo-1610425969509-839dda9c14b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1356&q=80'
       }
