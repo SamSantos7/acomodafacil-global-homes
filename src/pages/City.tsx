@@ -16,6 +16,58 @@ const citiesData = {
     countryName: 'Canadá',
     description: 'Toronto é a maior cidade do Canadá e um centro multicultural vibrante, oferecendo uma excelente qualidade de vida para estudantes internacionais. Com universidades de renome mundial, uma cena cultural diversificada e ótimas oportunidades de trabalho, Toronto é um destino ideal para seu intercâmbio.',
     imageSrc: 'https://images.unsplash.com/photo-1517090504586-fde19ea6066f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
+    accommodations: [
+      {
+        id: 'acc1',
+        name: 'Student Residence Toronto',
+        location: 'Downtown Toronto',
+        imageSrc: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
+        price: 950,
+        rating: 4.8,
+        type: 'residence',
+        distanceToCenter: 1.2
+      },
+      {
+        id: 'acc5',
+        name: 'Maple Leaf Student Housing',
+        location: 'North York',
+        imageSrc: 'https://images.unsplash.com/photo-1598928636135-d146006ff4be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
+        price: 850,
+        rating: 4.5,
+        type: 'residence',
+        distanceToCenter: 7.4
+      },
+      {
+        id: 'acc6',
+        name: 'CN Tower View Apartments',
+        location: 'Entertainment District',
+        imageSrc: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
+        price: 1150,
+        rating: 4.9,
+        type: 'apartment',
+        distanceToCenter: 0.6
+      },
+      {
+        id: 'acc7',
+        name: 'Yorkville Student Suites',
+        location: 'Yorkville',
+        imageSrc: 'https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
+        price: 1250,
+        rating: 4.7,
+        type: 'apartment',
+        distanceToCenter: 2.3
+      },
+      {
+        id: 'acc8',
+        name: 'Canadian Family Homestay',
+        location: 'Etobicoke',
+        imageSrc: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
+        price: 800,
+        rating: 4.6,
+        type: 'homestay',
+        distanceToCenter: 15.2
+      }
+    ]
   },
   'canada-vancouver': {
     id: 'vancouver',
@@ -24,67 +76,16 @@ const citiesData = {
     countryName: 'Canadá',
     description: 'Vancouver é uma cidade costeira vibrante na Columbia Britânica, conhecida por sua qualidade de vida excepcional e beleza natural deslumbrante. Com um ambiente acolhedor para estudantes internacionais, a cidade oferece excelentes instituições de ensino e uma atmosfera multicultural única.',
     imageSrc: 'https://images.unsplash.com/photo-1560813962-ff3d8fcf59ba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
+    accommodations: []
   }
-};
-  accommodations: [
-    {
-      id: 'acc1',
-      name: 'Student Residence Toronto',
-      location: 'Downtown Toronto',
-      imageSrc: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
-      price: 950,
-      rating: 4.8,
-      type: 'residence',
-      distanceToCenter: 1.2
-    },
-    {
-      id: 'acc5',
-      name: 'Maple Leaf Student Housing',
-      location: 'North York',
-      imageSrc: 'https://images.unsplash.com/photo-1598928636135-d146006ff4be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
-      price: 850,
-      rating: 4.5,
-      type: 'residence',
-      distanceToCenter: 7.4
-    },
-    {
-      id: 'acc6',
-      name: 'CN Tower View Apartments',
-      location: 'Entertainment District',
-      imageSrc: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
-      price: 1150,
-      rating: 4.9,
-      type: 'apartment',
-      distanceToCenter: 0.6
-    },
-    {
-      id: 'acc7',
-      name: 'Yorkville Student Suites',
-      location: 'Yorkville',
-      imageSrc: 'https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
-      price: 1250,
-      rating: 4.7,
-      type: 'apartment',
-      distanceToCenter: 2.3
-    },
-    {
-      id: 'acc8',
-      name: 'Canadian Family Homestay',
-      location: 'Etobicoke',
-      imageSrc: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
-      price: 800,
-      rating: 4.6,
-      type: 'homestay',
-      distanceToCenter: 15.2
-    }
-  ]
 };
 
 const City = () => {
   const { countryId, cityId } = useParams<{ countryId: string; cityId: string }>();
   
   // In a real application, you'd fetch data based on the parameters
-  const city = cityData; // This would be filtered/fetched in a real app
+  const cityKey = `${countryId}-${cityId}`;
+  const city = citiesData[cityKey as keyof typeof citiesData];
 
   const getAccommodationTypeLabel = (type: string) => {
     switch (type) {
@@ -113,7 +114,7 @@ const City = () => {
         <div className="absolute inset-0 bg-secondary bg-opacity-50"></div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative h-full flex flex-col justify-end pb-8">
           <div className="flex items-center text-white mb-2">
-            <Link to={`/destinations/${countryId}`} className="flex items-center hover:underline">
+            <Link to="/destinations" className="flex items-center hover:underline">
               <ArrowLeft size={16} className="mr-1" />
               <span>{city.countryName}</span>
             </Link>
@@ -139,7 +140,7 @@ const City = () => {
                 
                 {/* Price Filter */}
                 <div className="mb-6">
-                  <h4 className="font-medium mb-2">Preço por mês</h4>
+                  <h4 className="font-medium mb-2">Preço por semana</h4>
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-gray-500">$500</span>
                     <span className="text-sm text-gray-500">$2000+</span>
@@ -227,8 +228,8 @@ const City = () => {
                             <span className="text-sm font-medium">{accommodation.rating}</span>
                           </div>
                           <div>
-                            <span className="text-primary font-semibold text-lg">${accommodation.price}</span>
-                            <span className="text-sm text-gray-500">/mês</span>
+                            <span className="text-primary font-semibold text-lg">${Math.floor(accommodation.price / 4)}</span>
+                            <span className="text-sm text-gray-500">/semana</span>
                           </div>
                         </div>
                       </div>
