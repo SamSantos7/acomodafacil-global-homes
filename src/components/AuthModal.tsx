@@ -42,7 +42,7 @@ const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
     return re.test(email);
   };
 
-  const handleEmailLogin = async (e: React.FormEvent) => {
+  const handleEmailLogin = (e: React.FormEvent) => {
     e.preventDefault();
     
     setEmailError("");
@@ -59,38 +59,16 @@ const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
     
     setIsLoading(true);
     
-    try {
-      const response = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password: otpValue }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Falha na autenticação");
-      }
-
-      const data = await response.json();
-      localStorage.setItem("token", data.token);
-      
-      toast({
-        title: "Login realizado!",
-        description: "Você foi autenticado com sucesso.",
-      });
-      
-      onClose();
-      navigate('/dashboard');
-    } catch (error) {
-      toast({
-        title: "Erro no login",
-        description: "Não foi possível realizar o login. Tente novamente.",
-        variant: "destructive",
-      });
-    } finally {
+    // Simular envio de código OTP
+    setTimeout(() => {
       setIsLoading(false);
-    }
+      setShowOtpInput(true);
+      
+      toast({
+        title: "Código enviado!",
+        description: "Um código de verificação foi enviado para seu e-mail.",
+      });
+    }, 1500);
   };
 
   const handleOtpSubmit = (e: React.FormEvent) => {

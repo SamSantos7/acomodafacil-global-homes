@@ -14,38 +14,9 @@ interface DocumentCardProps {
 const DocumentCard = ({ id, title, description, icon }: DocumentCardProps) => {
   const [fileName, setFileName] = useState<string | null>(null);
   
-  const handleFileChange = async (e: ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      const file = e.target.files[0];
-      setFileName(file.name);
-      
-      const formData = new FormData();
-      formData.append("file", file);
-      
-      try {
-        const response = await fetch("/api/upload/documents", {
-          method: "POST",
-          headers: {
-            "Authorization": `Bearer ${localStorage.getItem("token")}`,
-          },
-          body: formData,
-        });
-        
-        if (!response.ok) {
-          throw new Error("Falha no upload");
-        }
-        
-        toast({
-          title: "Upload realizado!",
-          description: "Seu documento foi enviado com sucesso.",
-        });
-      } catch (error) {
-        toast({
-          title: "Erro no upload",
-          description: "Não foi possível enviar o documento. Tente novamente.",
-          variant: "destructive",
-        });
-      }
+      setFileName(e.target.files[0].name);
     }
   };
   
