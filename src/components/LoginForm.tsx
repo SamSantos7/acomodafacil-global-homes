@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { signIn } from 'next-auth/react';
+import { useToast } from '@/hooks/use-toast';
 
 export default function LoginForm() {
   const [email, setEmail] = useState('');
@@ -8,6 +10,7 @@ export default function LoginForm() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const router = useRouter();
+  const { toast } = useToast();
 
   const handleRequestOTP = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,8 +31,17 @@ export default function LoginForm() {
       }
 
       setShowOtpInput(true);
+      toast({
+        title: "Código enviado!",
+        description: "Um código de verificação foi enviado para seu e-mail.",
+      });
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Erro ao solicitar código');
+      toast({
+        title: "Erro",
+        description: err instanceof Error ? err.message : 'Erro ao solicitar código',
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }
@@ -41,25 +53,30 @@ export default function LoginForm() {
     setError('');
 
     try {
-      const response = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, otp })
+      const result = await signIn('credentials', {
+        email,
+        otp,
+        redirect: false,
       });
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Erro ao verificar código');
+      if (result?.error) {
+        throw new Error(result.error);
       }
 
-      // Salvar token no localStorage
-      localStorage.setItem('token', data.token);
-      
-      // Redirecionar para a página inicial
-      router.push('/');
+      toast({
+        title: "Login realizado!",
+        description: "Você foi autenticado com sucesso.",
+      });
+
+      router.push('/dashboard');
+      router.refresh();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Erro ao verificar código');
+      toast({
+        title: "Erro",
+        description: err instanceof Error ? err.message : 'Erro ao verificar código',
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }
