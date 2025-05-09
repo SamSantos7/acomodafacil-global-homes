@@ -17,7 +17,27 @@ interface Accommodation {
   featured: boolean;
 }
 
-const accommodations: Accommodation[] = [
+const [accommodations, setAccommodations] = useState<Accommodation[]>([]);
+
+useEffect(() => {
+  const fetchAccommodations = async () => {
+    try {
+      const response = await fetch("/api/accommodation/list");
+      if (!response.ok) {
+        throw new Error("Falha ao buscar acomodações");
+      }
+      const data = await response.json();
+      setAccommodations(data);
+    } catch (error) {
+      console.error("Erro ao carregar acomodações:", error);
+    }
+  };
+
+  fetchAccommodations();
+}, []);
+
+// Backup data for loading state
+const defaultAccommodations: Accommodation[] = [
   {
     id: 'acc1',
     name: 'Student Residence Toronto',
