@@ -1,34 +1,53 @@
+import { NextResponse } from 'next/server';
+import { PrismaClient } from '@prisma/client';
+import { createOTPSession, verifyOTP } from '@/lib/otp';
+import { sendOTPEmail } from '@/lib/email';
 
-import { db } from "@/lib/db";
-import { compare } from "bcrypt";
-import { sign } from "jsonwebtoken";
+const prisma = new PrismaClient();
 
 export async function POST(req: Request) {
   try {
-    const { email, password } = await req.json();
+    const { email, otp } = await req.json();
 
-    const user = await db.user.findUnique({
-      where: { email }
+    // Se não forneceu OTP, envia um novo
+    if (!otp) {
+      const otpCode = await createOTPSession(email);
+      const emailSent = await sendOTPEmail(email, otpCode);
+
+      if (!emailSent) {
+        return NextResponse.json(
+          { error: 'Erro ao enviar código de verificação' },
+          { status: 500 }
+        );
+      }
+
+      return NextResponse.json({
+        message: 'Código de verificação enviado com sucesso'
+      });
+    }
+
+    // Se forneceu OTP, verifica
+    const result = await verifyOTP(email, otp);
+
+    if (!result) {
+      return NextResponse.json(
+        { error: 'Código de verificação inválido ou expirado' },
+        { status: 401 }
+      );
+    }
+
+    const { user, token } = result;
+    const { password: _, ...userWithoutPassword } = user;
+
+    return NextResponse.json({
+      user: userWithoutPassword,
+      token
     });
-
-    if (!user) {
-      return new Response("Usuário não encontrado", { status: 404 });
-    }
-
-    const passwordMatch = await compare(password, user.password);
-
-    if (!passwordMatch) {
-      return new Response("Senha incorreta", { status: 401 });
-    }
-
-    const token = sign(
-      { userId: user.id },
-      process.env.JWT_SECRET || "fallback_secret",
-      { expiresIn: "7d" }
-    );
-
-    return Response.json({ token });
   } catch (error) {
-    return new Response("Erro ao fazer login", { status: 500 });
+    console.error('Login error:', error);
+    return NextResponse.json(
+      { error: 'Erro ao fazer login' },
+      { status: 500 }
+    );
   }
 }
