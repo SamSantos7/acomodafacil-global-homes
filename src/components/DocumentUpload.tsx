@@ -23,11 +23,8 @@ const DocumentCard = ({ id, title, description, icon }: DocumentCardProps) => {
       formData.append("file", file);
       
       try {
-        const response = await fetch("/api/upload/documents", {
+        const response = await fetch("/api/upload", {
           method: "POST",
-          headers: {
-            "Authorization": `Bearer ${localStorage.getItem("token")}`,
-          },
           body: formData,
         });
         
