@@ -13,7 +13,7 @@ const cityData = {
     countryId: 'canada',
     countryName: 'Canadá',
     description: 'Toronto é a maior cidade do Canadá e um centro multicultural vibrante, oferecendo uma excelente qualidade de vida para estudantes internacionais.',
-    imageSrc: 'https://images.unsplash.com/photo-1517090504586-fde19ea6066f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
+    imageSrc: 'https://images.unsplash.com/photo-1542704792-e30dac463c90?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
     accommodations: [
         {
           id: 'acc1',
@@ -126,8 +126,223 @@ const cityData = {
         distanceToCenter: 3.8
       }
     ]
+  },
+  'montreal': {
+    id: 'montreal',
+    name: 'Montreal',
+    countryId: 'canada',
+    countryName: 'Canadá',
+    description: 'Montreal é uma cidade única que combina charme europeu com modernidade norte-americana, oferecendo uma experiência bilíngue única.',
+    imageSrc: 'https://images.unsplash.com/photo-1519178614-68673b201f36?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
+    accommodations: []
+  },
+  'calgary': {
+    id: 'calgary',
+    name: 'Calgary',
+    countryId: 'canada',
+    countryName: 'Canadá',
+    description: 'Calgary é uma cidade moderna e dinâmica, conhecida por sua qualidade de vida e proximidade com as Montanhas Rochosas.',
+    imageSrc: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
+    accommodations: []
+  },
+  'dublin': {
+    id: 'dublin',
+    name: 'Dublin',
+    countryId: 'ireland',
+    countryName: 'Irlanda',
+    description: 'Dublin é uma cidade histórica e acolhedora, combinando tradição com modernidade e oferecendo uma experiência estudantil única.',
+    imageSrc: 'https://images.unsplash.com/photo-1564959130024-95a988ac8d14?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
+    accommodations: []
+  },
+  'cork': {
+    id: 'cork',
+    name: 'Cork',
+    countryId: 'ireland',
+    countryName: 'Irlanda',
+    description: 'Cork é a segunda maior cidade da Irlanda, conhecida por sua rica história e vibrante cena cultural e estudantil.',
+    imageSrc: 'https://images.unsplash.com/photo-1591535554317-f3905146df53?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
+    accommodations: []
+  },
+  'galway': {
+    id: 'galway',
+    name: 'Galway',
+    countryId: 'ireland',
+    countryName: 'Irlanda',
+    description: 'Galway é uma cidade costeira encantadora, famosa por seus festivais culturais e ambiente estudantil acolhedor.',
+    imageSrc: 'https://images.unsplash.com/photo-1591311337241-cecfd26f1da1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
+    accommodations: []
+  },
+  'sydney': {
+    id: 'sydney',
+    name: 'Sydney',
+    countryId: 'australia',
+    countryName: 'Austrália',
+    description: 'Sydney é a maior cidade da Austrália, oferecendo uma combinação única de praias deslumbrantes e oportunidades educacionais de classe mundial.',
+    imageSrc: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
+    accommodations: []
+  },
+  'melbourne': {
+    id: 'melbourne',
+    name: 'Melbourne',
+    countryId: 'australia',
+    countryName: 'Austrália',
+    description: 'Melbourne é conhecida por sua excelente qualidade de vida, diversidade cultural e vibrante cena artística.',
+    imageSrc: 'https://images.unsplash.com/photo-1514395462725-fb4566210144?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
+    accommodations: []
+  },
+  'brisbane': {
+    id: 'brisbane',
+    name: 'Brisbane',
+    countryId: 'australia',
+    countryName: 'Austrália',
+    description: 'Brisbane oferece um clima subtropical perfeito e uma atmosfera relaxada, ideal para estudantes internacionais.',
+    imageSrc: 'https://images.unsplash.com/photo-1452859030914-b44b89314cef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
+    accommodations: []
+  },
+  'perth': {
+    id: 'perth',
+    name: 'Perth',
+    countryId: 'australia',
+    countryName: 'Austrália',
+    description: 'Perth é uma cidade moderna e ensolarada, oferecendo um estilo de vida relaxado e excelentes instituições de ensino.',
+    imageSrc: 'https://images.unsplash.com/photo-1573650048431-8cf73f265c29?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
+    accommodations: []
+  },
+  'adelaide': {
+    id: 'adelaide',
+    name: 'Adelaide',
+    countryId: 'australia',
+    countryName: 'Austrália',
+    description: 'Adelaide é conhecida por sua tranquilidade e excelente sistema educacional, além de belas praias e regiões vinícolas.',
+    imageSrc: 'https://images.unsplash.com/photo-1530088460146-70396bd8bdf7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
+    accommodations: []
+  },
+  'st-julians': {
+    id: 'st-julians',
+    name: 'St. Julians',
+    countryId: 'malta',
+    countryName: 'Malta',
+    description: 'St. Julians é um destino turístico popular em Malta, oferecendo uma combinação perfeita de estudo e lazer.',
+    imageSrc: 'https://images.unsplash.com/photo-1589489873663-42232ab0e1aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
+    accommodations: []
+  },
+  'sliema': {
+    id: 'sliema',
+    name: 'Sliema',
+    countryId: 'malta',
+    countryName: 'Malta',
+    description: 'Sliema é uma cidade costeira moderna em Malta, ideal para estudantes que buscam combinar estudos com um estilo de vida mediterrâneo.',
+    imageSrc: 'https://images.unsplash.com/photo-1586699253884-e199770f63b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
+    accommodations: []
+  },
+  'cape-town': {
+    id: 'cape-town',
+    name: 'Cape Town',
+    countryId: 'south-africa',
+    countryName: 'África do Sul',
+    description: 'Cape Town é uma das cidades mais bonitas do mundo, oferecendo uma experiência única de estudo com paisagens deslumbrantes.',
+    imageSrc: 'https://images.unsplash.com/photo-1578868837155-beb53b4ce75f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
+    accommodations: []
+  },
+  'auckland': {
+    id: 'auckland',
+    name: 'Auckland',
+    countryId: 'new-zealand',
+    countryName: 'Nova Zelândia',
+    description: 'Auckland é a maior cidade da Nova Zelândia, oferecendo uma qualidade de vida excepcional e instituições de ensino de primeira linha.',
+    imageSrc: 'https://images.unsplash.com/photo-1507699622108-4be3abd695ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
+    accommodations: []
+  },
+  'queenstown': {
+    id: 'queenstown',
+    name: 'Queenstown',
+    countryId: 'new-zealand',
+    countryName: 'Nova Zelândia',
+    description: 'Queenstown é conhecida como a capital mundial dos esportes de aventura, oferecendo uma experiência única de estudo.',
+    imageSrc: 'https://images.unsplash.com/photo-1589485257285-44c0b83d7e89?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
+    accommodations: []
+  },
+  'christchurch': {
+    id: 'christchurch',
+    name: 'Christchurch',
+    countryId: 'new-zealand',
+    countryName: 'Nova Zelândia',
+    description: 'Christchurch é uma cidade em constante renovação, oferecendo excelentes oportunidades educacionais em um ambiente único.',
+    imageSrc: 'https://images.unsplash.com/photo-1579012175174-48f28b40c3b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
+    accommodations: []
+  },
+  'dubai': {
+    id: 'dubai',
+    name: 'Dubai',
+    countryId: 'uae',
+    countryName: 'Emirados Árabes Unidos',
+    description: 'Dubai é uma cidade futurística que oferece uma experiência educacional única em um ambiente multicultural e inovador.',
+    imageSrc: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
+    accommodations: []
+  },
+  'london': {
+    id: 'london',
+    name: 'Londres',
+    countryId: 'england',
+    countryName: 'Inglaterra',
+    description: 'Londres é uma das cidades mais vibrantes do mundo, oferecendo infinitas oportunidades educacionais e culturais.',
+    imageSrc: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
+    accommodations: []
+  },
+  'brighton': {
+    id: 'brighton',
+    name: 'Brighton',
+    countryId: 'england',
+    countryName: 'Inglaterra',
+    description: 'Brighton é uma cidade costeira vibrante, conhecida por sua atmosfera jovem e criativa.',
+    imageSrc: 'https://images.unsplash.com/photo-1583425875562-a0c0514ea4af?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
+    accommodations: []
+  },
+  'cambridge': {
+    id: 'cambridge',
+    name: 'Cambridge',
+    countryId: 'england',
+    countryName: 'Inglaterra',
+    description: 'Cambridge é sinônimo de excelência acadêmica, oferecendo uma experiência educacional em uma cidade histórica.',
+    imageSrc: 'https://images.unsplash.com/photo-1597586014756-30234ad8dd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
+    accommodations: []
+  },
+  'manchester': {
+    id: 'manchester',
+    name: 'Manchester',
+    countryId: 'england',
+    countryName: 'Inglaterra',
+    description: 'Manchester é uma cidade dinâmica com rica história industrial e vibrante cena cultural e estudantil.',
+    imageSrc: 'https://images.unsplash.com/photo-1611410887619-f5a1f31fcb0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
+    accommodations: []
+  },
+  'liverpool': {
+    id: 'liverpool',
+    name: 'Liverpool',
+    countryId: 'england',
+    countryName: 'Inglaterra',
+    description: 'Liverpool é famosa por sua história musical e cultural, oferecendo uma experiência estudantil única.',
+    imageSrc: 'https://images.unsplash.com/photo-1563361900-36c0d602e02c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
+    accommodations: []
+  },
+  'oxford': {
+    id: 'oxford',
+    name: 'Oxford',
+    countryId: 'england',
+    countryName: 'Inglaterra',
+    description: 'Oxford é uma cidade universitária histórica, oferecendo uma experiência acadêmica incomparável.',
+    imageSrc: 'https://images.unsplash.com/photo-1590510296369-ce07e3ad784c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
+    accommodations: []
+  },
+  'bournemouth': {
+    id: 'bournemouth',
+    name: 'Bournemouth',
+    countryId: 'england',
+    countryName: 'Inglaterra',
+    description: 'Bournemouth é uma cidade costeira encantadora, popular entre estudantes internacionais por suas praias e qualidade de vida.',
+    imageSrc: 'https://images.unsplash.com/photo-1599739490570-65ce2b0bddd0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
+    accommodations: []
   }
-  // Add other cities similarly
 };
 
 const City = () => {
