@@ -22,7 +22,7 @@ const Hero = () => {
             Seu lar no intercâmbio começa aqui
           </h1>
           <p className="text-xl text-white mb-8 animate-fade-in">
-            Encontre acomodações estudantis premium em destinos internacionais com atendimento personalizado e reserva simplificada.
+            Encontre acomodações estudantis em destinos internacionais com atendimento personalizado e reserva simplificada.
           </p>
 
           {/* Search form */}
@@ -41,7 +41,7 @@ const Hero = () => {
                   <option value="ireland">Irlanda</option>
                   <option value="australia">Austrália</option>
                   <option value="england">Inglaterra</option>
-                  <option value="dubai">Dubai</option>
+                  <option value="dubai">Emirados Arabes Unidos</option>
                   <option value="newzealand">Nova Zelândia</option>
                   <option value="malta">Malta</option>
                   <option value="southafrica">África do Sul</option>
@@ -56,6 +56,7 @@ const Hero = () => {
                   className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
                 >
                   <option value="">Selecione uma cidade</option>
+		  <option value="dubai">Dubai</option>
                   <option value="toronto">Toronto</option>
                   <option value="vancouver">Vancouver</option>
                   <option value="dublin">Dublin</option>
