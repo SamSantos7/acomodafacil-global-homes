@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -114,6 +113,130 @@ const destinations: Destination[] = [
       }
     ]
   },
+  {
+    id: 'malta',
+    name: 'Malta',
+    description: 'Estude inglês em uma ilha mediterrânea com clima agradável o ano todo e rica história cultural.',
+    imageSrc: 'https://images.unsplash.com/photo-1514921978085-910cb0864335?ixlib=rb-4.0.3',
+    cities: [
+      {
+        id: 'st-julians',
+        name: 'St. Julians',
+        accommodationCount: 15,
+        imageSrc: 'https://images.unsplash.com/photo-1589489873663-42232ab0e1aa?ixlib=rb-4.0.3'
+      },
+      {
+        id: 'sliema',
+        name: 'Sliema',
+        accommodationCount: 12,
+        imageSrc: 'https://images.unsplash.com/photo-1586699253884-e199770f63b9?ixlib=rb-4.0.3'
+      }
+    ]
+  },
+  {
+    id: 'south-africa',
+    name: 'África do Sul',
+    description: 'Experimente uma cultura única e paisagens deslumbrantes enquanto estuda em uma das cidades mais vibrantes da África.',
+    imageSrc: 'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?ixlib=rb-4.0.3',
+    cities: [
+      {
+        id: 'cape-town',
+        name: 'Cape Town',
+        accommodationCount: 20,
+        imageSrc: 'https://images.unsplash.com/photo-1578868837155-beb53b4ce75f?ixlib=rb-4.0.3'
+      }
+    ]
+  },
+  {
+    id: 'new-zealand',
+    name: 'Nova Zelândia',
+    description: 'Combine educação de qualidade com aventura e paisagens naturais de tirar o fôlego.',
+    imageSrc: 'https://images.unsplash.com/photo-1469521669194-babb45599def?ixlib=rb-4.0.3',
+    cities: [
+      {
+        id: 'auckland',
+        name: 'Auckland',
+        accommodationCount: 25,
+        imageSrc: 'https://images.unsplash.com/photo-1507699622108-4be3abd695ad?ixlib=rb-4.0.3'
+      },
+      {
+        id: 'christchurch',
+        name: 'Christchurch',
+        accommodationCount: 18,
+        imageSrc: 'https://images.unsplash.com/photo-1579012175174-48f28b40c3b6?ixlib=rb-4.0.3'
+      },
+      {
+        id: 'queenstown',
+        name: 'Queenstown',
+        accommodationCount: 15,
+        imageSrc: 'https://images.unsplash.com/photo-1589485257285-44c0b83d7e89?ixlib=rb-4.0.3'
+      }
+    ]
+  },
+  {
+    id: 'uae',
+    name: 'Emirados Árabes Unidos',
+    description: 'Estude em uma das cidades mais modernas do mundo, onde tradição e futuro se encontram.',
+    imageSrc: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3',
+    cities: [
+      {
+        id: 'dubai',
+        name: 'Dubai',
+        accommodationCount: 30,
+        imageSrc: 'https://images.unsplash.com/photo-1546412414-e1885259563a?ixlib=rb-4.0.3'
+      }
+    ]
+  },
+  {
+    id: 'england',
+    name: 'Inglaterra',
+    description: 'Estude na terra da língua inglesa, com tradição acadêmica secular e cidades históricas.',
+    imageSrc: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3',
+    cities: [
+      {
+        id: 'london',
+        name: 'Londres',
+        accommodationCount: 45,
+        imageSrc: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3'
+      },
+      {
+        id: 'brighton',
+        name: 'Brighton',
+        accommodationCount: 20,
+        imageSrc: 'https://images.unsplash.com/photo-1589805180447-02b211f8bc3b?ixlib=rb-4.0.3'
+      },
+      {
+        id: 'cambridge',
+        name: 'Cambridge',
+        accommodationCount: 18,
+        imageSrc: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3'
+      },
+      {
+        id: 'manchester',
+        name: 'Manchester',
+        accommodationCount: 25,
+        imageSrc: 'https://images.unsplash.com/photo-1611895453688-1450aa7e20f0?ixlib=rb-4.0.3'
+      },
+      {
+        id: 'liverpool',
+        name: 'Liverpool',
+        accommodationCount: 20,
+        imageSrc: 'https://images.unsplash.com/photo-1523731407965-2430cd12f5e4?ixlib=rb-4.0.3'
+      },
+      {
+        id: 'oxford',
+        name: 'Oxford',
+        accommodationCount: 15,
+        imageSrc: 'https://images.unsplash.com/photo-1578500494198-246f612d3b3d?ixlib=rb-4.0.3'
+      },
+      {
+        id: 'bournemouth',
+        name: 'Bournemouth',
+        accommodationCount: 12,
+        imageSrc: 'https://images.unsplash.com/photo-1589802829985-817e51171b92?ixlib=rb-4.0.3'
+      }
+    ]
+  }
 ];
 
 const Destinations = () => {
@@ -143,7 +266,7 @@ const Destinations = () => {
                 <div className="p-6 lg:w-2/3">
                   <h2 className="text-2xl font-bold text-secondary mb-3">{destination.name}</h2>
                   <p className="text-gray-600 mb-6">{destination.description}</p>
-                  
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     {destination.cities.map((city) => (
                       <Link 
