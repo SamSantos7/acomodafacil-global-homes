@@ -1,13 +1,17 @@
+'use client';
+
 import { useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { useUploadThing } from '@/lib/uploadthing';
 import { useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 
 export default function DocumentUpload() {
   const [files, setFiles] = useState<File[]>([]);
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
+  const { data: session } = useSession();
 
   const { startUpload, isUploading } = useUploadThing("documentUploader", {
     onClientUploadComplete: (res) => {
@@ -49,6 +53,14 @@ export default function DocumentUpload() {
       setUploading(false);
     }
   };
+
+  if (!session) {
+    return (
+      <div className="text-center p-6 bg-gray-50 rounded-lg">
+        <p className="text-gray-600">Faça login para fazer upload de documentos</p>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full max-w-xl mx-auto p-6">
