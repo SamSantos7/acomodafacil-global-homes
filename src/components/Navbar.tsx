@@ -1,50 +1,11 @@
 'use client'
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, User, ChevronDown } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import AuthModal from './AuthModal';
-import { useToast } from '@/hooks/use-toast';
-import { useRouter } from 'next/navigation';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-  const [user, setUser] = useState<any>(null);
-  const { toast } = useToast();
-  const router = useRouter();
-
-  // Verificar se o usuário está logado ao carregar o componente
-  useEffect(() => {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      try {
-        setUser(JSON.parse(storedUser));
-      } catch (error) {
-        console.error('Erro ao parser dados do usuário:', error);
-      }
-    }
-  }, []);
-
-  const handleLogout = () => {
-    localStorage.removeItem('user');
-    setUser(null);
-    
-    toast({
-      title: "Logout realizado",
-      description: "Você saiu da sua conta com sucesso."
-    });
-    
-    router.push('/');
-  };
-  
-  const openAuthModal = () => {
-    setIsAuthModalOpen(true);
-    setIsMenuOpen(false);
-  };
 
   return (
     <nav className="bg-white shadow-sm sticky top-0 z-50">
@@ -72,58 +33,10 @@ const Navbar = () => {
             <Link href="/contact" className="text-gray-700 hover:text-primary font-medium">
               Contato
             </Link>
-            
-            {user ? (
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="flex items-center gap-2 p-1 hover:bg-gray-100">
-                    <Avatar className="h-8 w-8">
-                      <AvatarImage src={user.avatar} alt={user.name} />
-                      <AvatarFallback>{user.name?.charAt(0) || 'U'}</AvatarFallback>
-                    </Avatar>
-                    <span className="text-sm font-medium">{user.name?.split(' ')[0]}</span>
-                    <ChevronDown size={16} />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-56">
-                  <DropdownMenuItem asChild>
-                    <Link href="/dashboard" className="cursor-pointer">Minha Conta</Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link href="/dashboard?tab=reservations" className="cursor-pointer">Minhas Reservas</Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link href="/dashboard?tab=wishlist" className="cursor-pointer">Lista de Desejos</Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem asChild>
-                    <Link href="/admin" className="cursor-pointer">Admin (Demo)</Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={handleLogout} className="cursor-pointer text-red-600">
-                    Sair
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            ) : (
-              <Button variant="outline" size="sm" className="flex items-center gap-2 border-primary text-primary hover:bg-primary hover:text-white" onClick={openAuthModal}>
-                <User size={16} />
-                <span>Entrar</span>
-              </Button>
-            )}
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
-            {user && (
-              <Button variant="ghost" className="mr-2 p-1 hover:bg-gray-100" onClick={() => router.push('/dashboard')}>
-                <Avatar className="h-8 w-8">
-                  <AvatarImage src={user.avatar} alt={user.name} />
-                  <AvatarFallback>{user.name?.charAt(0) || 'U'}</AvatarFallback>
-                </Avatar>
-              </Button>
-            )}
-            
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary focus:outline-none"
@@ -165,52 +78,10 @@ const Navbar = () => {
               >
                 Contato
               </Link>
-              
-              {user ? (
-                <>
-                  <Link 
-                    href="/dashboard" 
-                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Minha Conta
-                  </Link>
-                  <Link 
-                    href="/admin" 
-                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Admin (Demo)
-                  </Link>
-                  <button
-                    className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-red-600 hover:text-red-800"
-                    onClick={() => {
-                      handleLogout();
-                      setIsMenuOpen(false);
-                    }}
-                  >
-                    Sair
-                  </button>
-                </>
-              ) : (
-                <div className="px-3 py-2">
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    className="flex items-center gap-2 w-full justify-center border-primary text-primary hover:bg-primary hover:text-white"
-                    onClick={openAuthModal}
-                  >
-                    <User size={16} />
-                    <span>Entrar</span>
-                  </Button>
-                </div>
-              )}
             </div>
           </div>
         )}
       </div>
-      
-      <AuthModal isOpen={isAuthModalOpen} onClose={() => setIsAuthModalOpen(false)} />
     </nav>
   );
 };

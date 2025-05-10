@@ -1,16 +1,15 @@
 {
-  "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
   "/About": "pages/About.js",
   "/Accommodation": "pages/Accommodation.js",
   "/Accommodations": "pages/Accommodations.js",
   "/Admin": "pages/Admin.js",
   "/City": "pages/City.js",
   "/Contact": "pages/Contact.js",
-  "/Dashboard": "pages/Dashboard.js",
   "/Destinations": "pages/Destinations.js",
   "/Index": "pages/Index.js",
   "/NotFound": "pages/NotFound.js",
   "/Privacy": "pages/Privacy.js",
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
   "/_document": "pages/_document.js"
 }
