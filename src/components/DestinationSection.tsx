@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 interface Destination {
   id: string;
@@ -75,7 +74,7 @@ const DestinationSection = () => {
           {destinations.map((destination) => (
             <Link 
               key={destination.id} 
-              to={`/destinations/${destination.id}`}
+              href={`/destinations/${destination.id}`}
               className="group"
             >
               <div className="bg-white rounded-lg overflow-hidden shadow-md card-hover">

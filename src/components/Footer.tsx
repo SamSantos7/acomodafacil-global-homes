@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Mail, Phone, Globe, Facebook, Instagram } from 'lucide-react';
 
 const Footer = () => {
@@ -10,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo and description */}
           <div>
-            <Link to="/" className="inline-block mb-4">
+            <Link href="/" className="inline-block mb-4">
               <span className="text-white font-bold text-xl">
                 Acomoda<span className="text-primary">Fácil</span>
               </span>
@@ -30,22 +29,22 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Links Rápidos</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/destinations" className="text-gray-300 hover:text-primary transition-colors text-sm">
+                <Link href="/destinations" className="text-gray-300 hover:text-primary transition-colors text-sm">
                   Destinos
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-gray-300 hover:text-primary transition-colors text-sm">
+                <Link href="/about" className="text-gray-300 hover:text-primary transition-colors text-sm">
                   Sobre Nós
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-300 hover:text-primary transition-colors text-sm">
+                <Link href="/contact" className="text-gray-300 hover:text-primary transition-colors text-sm">
                   Contato
                 </Link>
               </li>
               <li>
-                <Link to="/faq" className="text-gray-300 hover:text-primary transition-colors text-sm">
+                <Link href="/faq" className="text-gray-300 hover:text-primary transition-colors text-sm">
                   Perguntas Frequentes
                 </Link>
               </li>
@@ -57,7 +56,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Acomodações</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/accommodations" className="text-gray-300 hover:text-primary transition-colors text-sm">
+                <Link href="/accommodations" className="text-gray-300 hover:text-primary transition-colors text-sm">
                   Todas as Acomodações
                 </Link>
               </li>

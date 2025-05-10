@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Star, MapPin } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
@@ -96,7 +95,7 @@ const FeaturedAccommodations = () => {
           {accommodations.map((accommodation) => (
             <Link 
               key={accommodation.id} 
-              to={`/accommodation/${accommodation.id}`}
+              href={`/accommodation/${accommodation.id}`}
               className="group"
             >
               <div className="bg-white rounded-lg overflow-hidden shadow-md h-full card-hover">
@@ -138,7 +137,7 @@ const FeaturedAccommodations = () => {
 
         <div className="mt-10 text-center">
           <Link 
-            to="/accommodations"
+            href="/accommodations"
             className="inline-flex items-center text-primary hover:text-primary/80 font-medium"
           >
             Ver todas as acomodações
