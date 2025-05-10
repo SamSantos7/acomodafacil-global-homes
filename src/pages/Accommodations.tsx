@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Star, MapPin } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -173,7 +172,7 @@ const Accommodations = () => {
                 {accommodations.map((accommodation) => (
                   <Link 
                     key={accommodation.id}
-                    to={`/accommodation/${accommodation.id}`}
+                    href={`/accommodation/${accommodation.id}`}
                     className="block"
                   >
                     <div className="bg-white rounded-lg overflow-hidden shadow-md h-full card-hover">

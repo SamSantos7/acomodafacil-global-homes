@@ -1,5 +1,7 @@
+'use client'
+
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
@@ -265,7 +267,7 @@ const Destinations = () => {
                     {destination.cities.map((city) => (
                       <Link 
                         key={city.id} 
-                        to={`/city/${destination.id}/${city.id}`}
+                        href={`/city/${destination.id}/${city.id}`}
                         className="group"
                       >
                         <div className="bg-gray-50 rounded-lg overflow-hidden shadow-sm card-hover">

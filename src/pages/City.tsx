@@ -1,5 +1,6 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'next/navigation';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -337,7 +338,7 @@ const cityData = {
 };
 
 const City = () => {
-  const { countryId, cityId } = useParams<{ countryId: string; cityId: string }>();
+  const { countryId, cityId } = useParams();
   const city = cityData[cityId as keyof typeof cityData];
 
   if (!city) {
@@ -370,7 +371,7 @@ const City = () => {
         <div className="absolute inset-0 bg-secondary bg-opacity-50"></div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative h-full flex flex-col justify-end pb-8">
           <div className="flex items-center text-white mb-2">
-            <Link to={`/destinations/${countryId}`} className="flex items-center hover:underline">
+            <Link href={`/destinations/${countryId}`} className="flex items-center hover:underline">
               <ArrowLeft size={16} className="mr-1" />
               <span>{city.countryName}</span>
             </Link>
@@ -442,7 +443,7 @@ const City = () => {
                 {city.accommodations.map((accommodation) => (
                   <Link 
                     key={accommodation.id} 
-                    to={`/accommodation/${accommodation.id}`}
+                    href={`/accommodation/${accommodation.id}`}
                     className="block"
                   >
                     <div className="bg-white rounded-lg overflow-hidden shadow-md card-hover flex flex-col md:flex-row">

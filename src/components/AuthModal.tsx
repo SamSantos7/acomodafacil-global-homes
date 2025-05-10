@@ -1,3 +1,4 @@
+'use client'
 
 import React, { useState, useEffect } from 'react';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
@@ -6,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { CheckCircle, Facebook, Mail, X, ArrowRight } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import { InputOTP, InputOTPGroup, InputOTPSlot } from '@/components/ui/input-otp';
 import { motion } from 'framer-motion';
 
@@ -17,7 +18,7 @@ interface AuthModalProps {
 
 const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
   const { toast } = useToast();
-  const navigate = useNavigate();
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState("email");
   const [email, setEmail] = useState("");
   const [showOtpInput, setShowOtpInput] = useState(false);
@@ -106,7 +107,7 @@ const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
       });
       
       onClose();
-      navigate('/dashboard');
+      router.push('/dashboard');
     }, 1500);
   };
 
@@ -134,7 +135,7 @@ const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
       });
       
       onClose();
-      navigate('/dashboard');
+      router.push('/dashboard');
     }, 1500);
   };
 

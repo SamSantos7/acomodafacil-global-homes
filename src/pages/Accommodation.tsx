@@ -1,6 +1,6 @@
-
 import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'next/navigation';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -109,9 +109,9 @@ const Accommodation = () => {
           {/* Breadcrumb */}
           <div className="mb-6">
             <div className="flex items-center text-gray-600 text-sm">
-              <Link to={`/destinations/${accommodation.countryId}`} className="hover:text-primary">{accommodation.country}</Link>
+              <Link href={`/destinations/${accommodation.countryId}`} className="hover:text-primary">{accommodation.country}</Link>
               <span className="mx-2">›</span>
-              <Link to={`/city/${accommodation.countryId}/${accommodation.cityId}`} className="hover:text-primary">{accommodation.city}</Link>
+              <Link href={`/city/${accommodation.countryId}/${accommodation.cityId}`} className="hover:text-primary">{accommodation.city}</Link>
               <span className="mx-2">›</span>
               <span className="text-gray-800">{accommodation.name}</span>
             </div>
@@ -120,7 +120,7 @@ const Accommodation = () => {
           {/* Back Button */}
           <div className="mb-6">
             <Link 
-              to={`/city/${accommodation.countryId}/${accommodation.cityId}`}
+              href={`/city/${accommodation.countryId}/${accommodation.cityId}`}
               className="inline-flex items-center text-secondary hover:text-primary"
             >
               <ArrowLeft size={16} className="mr-1" />

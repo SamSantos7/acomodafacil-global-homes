@@ -1,9 +1,10 @@
+'use client'
 
 import React from 'react';
 import { Heart, Gift, Ticket, User, Upload, File, LogOut } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 type DashboardSidebarProps = {
@@ -12,12 +13,12 @@ type DashboardSidebarProps = {
 };
 
 const DashboardSidebar = ({ activeTab, setActiveTab }: DashboardSidebarProps) => {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const handleLogout = () => {
     // Para uma implementação simples sem backend, apenas remove os dados do localStorage
     localStorage.removeItem('user');
-    navigate('/');
+    router.push('/');
   };
 
   const menuItems = [
