@@ -47,7 +47,7 @@ const destinations: Destination[] = [
         id: 'calgary',
         name: 'Calgary',
         accommodationCount: 12,
-        imageSrc: 'https://images.unsplash.com/photo-1600773612661-f97d036b7044?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'
+        imageSrc: 'https://images.unsplash.com/photo-1597288253816-54ea162cdf0d?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
       }
     ]
   },
@@ -67,13 +67,13 @@ const destinations: Destination[] = [
         id: 'cork',
         name: 'Cork',
         accommodationCount: 14,
-        imageSrc: 'https://images.unsplash.com/photo-1601920546638-5b6eaabd5b2b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80'
+        imageSrc: 'https://images.unsplash.com/photo-1601805824475-527ed396e4d2?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
       },
       {
         id: 'galway',
         name: 'Galway',
         accommodationCount: 10,
-        imageSrc: 'https://images.unsplash.com/photo-1633352615955-f0c99e8b8079?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80'
+        imageSrc: 'https://images.unsplash.com/photo-1626199749010-cf0f32558395?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
       }
     ]
   },
